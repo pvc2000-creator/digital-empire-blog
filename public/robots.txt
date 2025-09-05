@@ -1,4 +1,0 @@
-﻿User-agent: *
-Allow: /
-
-Sitemap: https://digital-empire-blog.vercel.app/sitemap.xml
