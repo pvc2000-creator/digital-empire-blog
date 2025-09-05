@@ -1,4 +1,4 @@
-﻿import '../styles/index.css';
+﻿import '../styles/global.css';
 import Script from 'next/script';
 
 export default function MyApp({ Component, pageProps }) {
