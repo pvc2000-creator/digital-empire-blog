@@ -1,4 +1,5 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://digital-empire-blog-5uvt6xner-pvchoubey2000-6856s-projects.vercel.app/sitemap.xml
+Host: digital-empire-blog-5uvt6xner-pvchoubey2000-6856s-projects.vercel.app
