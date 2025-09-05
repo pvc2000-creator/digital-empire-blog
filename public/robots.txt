@@ -1,5 +1,5 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://digital-empire-blog-5uvt6xner-pvchoubey2000-6856s-projects.vercel.app/sitemap.xml
-Host: digital-empire-blog-5uvt6xner-pvchoubey2000-6856s-projects.vercel.app
+Sitemap: https://digital-empire-blog.vercel.app/sitemap.xml
+Host: digital-empire-blog.vercel.app
