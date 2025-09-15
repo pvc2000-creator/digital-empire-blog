@@ -1,4 +1,5 @@
-﻿export default function RootLayout({
+﻿import AdsInit from "@/components/AdsInit";
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -29,7 +30,9 @@
         </noscript>
 
         {children}
-      </body>
+        <AdsInit />
+</body>
     </html>
   );
 }
+
