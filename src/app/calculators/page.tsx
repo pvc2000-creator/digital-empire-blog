@@ -1,18 +1,14 @@
 ﻿import Link from "next/link";
 
 const calculators = [
-  {
-    slug: "gst",
-    name: "GST Calculator",
-    description: "Compute GST and total amount quickly.",
-  },
-  // Add more here: emi, age, cgpa-percent, percent-change, etc.
+  { slug: "gst", name: "GST Calculator", description: "Compute GST and total amount quickly." },
+  { slug: "emi", name: "EMI Calculator", description: "Monthly EMI, total interest & payment." },
+  { slug: "age", name: "Age Calculator", description: "Age in years, months, and days." },
 ];
 
 export default function CalculatorsIndex() {
   return (
     <main className="relative min-h-[75vh] py-10">
-      {/* background */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-rose-50" />
       <div className="mx-auto max-w-5xl px-4">
         <h1 className="mb-6 text-center text-4xl font-bold">Calculators</h1>
