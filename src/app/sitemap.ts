@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/calculators/gst`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/calculators/emi`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/calculators/age`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/calculators/percent-change`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/calculators/simple-interest`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/blog`,        changeFrequency: "weekly",  priority: 0.6 },
     { url: `${base}/about`,       changeFrequency: "yearly",  priority: 0.3 },
     { url: `${base}/contact`,     changeFrequency: "yearly",  priority: 0.3 },

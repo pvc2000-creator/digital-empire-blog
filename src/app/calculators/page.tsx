@@ -4,6 +4,8 @@ const calculators = [
   { slug: "gst", name: "GST Calculator", description: "Compute GST and total amount quickly." },
   { slug: "emi", name: "EMI Calculator", description: "Monthly EMI, interest & totals." },
   { slug: "age", name: "Age Calculator", description: "Age in years, months, days." },
+  { slug: "percent-change", name: "Percentage Change", description: "% increase/decrease & difference." },
+  { slug: "simple-interest", name: "Simple Interest", description: "Interest and total amount." },
 ];
 
 export default function CalculatorsIndex() {

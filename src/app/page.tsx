@@ -5,7 +5,7 @@ import { CardLink } from "@/components/Card";
 const featured = [
   { href: "/calculators/gst", name: "GST Calculator", desc: "Compute GST and total." },
   { href: "/calculators/emi", name: "EMI Calculator", desc: "Monthly EMI & totals." },
-  { href: "/calculators/age", name: "Age Calculator", desc: "Years, months, days." },
+  { href: "/calculators/percent-change", name: "Percentage Change", desc: "Increase/decrease & difference." },
 ];
 
 export default function Home() {

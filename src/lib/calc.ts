@@ -30,12 +30,22 @@ export function calcAge(birthISO: string, refISO?: string) {
 
   if (days < 0) {
     const prevMonth = new Date(r.getFullYear(), r.getMonth(), 0).getDate();
-    days += prevMonth;
-    months -= 1;
+    days += prevMonth; months -= 1;
   }
-  if (months < 0) {
-    months += 12;
-    years -= 1;
-  }
+  if (months < 0) { months += 12; years -= 1; }
   return { years: Math.max(0, years), months: Math.max(0, months), days: Math.max(0, days) };
+}
+
+export function calcPercentChange(oldVal: number, newVal: number) {
+  const diff = newVal - oldVal;
+  const changePct = oldVal === 0 ? (newVal === 0 ? 0 : 100) : (diff / Math.abs(oldVal)) * 100;
+  return { diff, changePct };
+}
+
+export function calcSimpleInterest(p: number, ratePct: number, years: number, months: number) {
+  const t = (years || 0) + (months || 0)/12;
+  const r = (ratePct || 0) / 100;
+  const interest = p * r * t;
+  const total = p + interest;
+  return { interest, total, years: t };
 }
