@@ -1,4 +1,6 @@
-﻿import AdsInit from "@/components/AdsInit";
+﻿import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
+import AdsInit from "@/components/AdsInit";
 export default function RootLayout({
   children,
 }: {
@@ -19,6 +21,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+  <SiteHeader />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -30,9 +33,11 @@ export default function RootLayout({
         </noscript>
 
         {children}
-        <AdsInit />
+          <SiteFooter />
+  <AdsInit />
 </body>
     </html>
   );
 }
+
 
