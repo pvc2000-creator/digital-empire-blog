@@ -1,43 +1,25 @@
-﻿import SiteFooter from "@/components/SiteFooter";
+﻿import "./globals.css";
+import { Inter } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import AdsInit from "@/components/AdsInit";
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata = {
+  title: "Calculator Hub — Digital Empire",
+  description: "Fast, accurate, free calculators and study tools.",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-MDZ8XQPR');`,
-          }}
-        />
-      </head>
-      <body>
-  <SiteHeader />
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-MDZ8XQPR"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-
+      <body className={`${inter.className} min-h-screen`}>
+        <SiteHeader />
         {children}
-          <SiteFooter />
-  <AdsInit />
-</body>
+        <SiteFooter />
+        <AdsInit />
+      </body>
     </html>
   );
 }
-
-

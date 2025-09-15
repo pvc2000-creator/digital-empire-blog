@@ -1,0 +1,28 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light global theme */
+:root {
+  --bg-from: 250 250 250; /* zinc-50 */
+  --bg-to:   255 255 255; /* white */
+  --text:    24 24 27;    /* zinc-900 */
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply min-h-screen bg-gradient-to-br from-[rgb(var(--bg-from))] to-[rgb(var(--bg-to))] text-zinc-900 antialiased;
+}
+
+/* Typography defaults for content blocks */
+.prose {
+  @apply prose-zinc;
+}
+
+/* Utility used in components */
+@layer utilities {
+  .text-muted-foreground { @apply text-zinc-600; }
+}
