@@ -1,32 +1,22 @@
-﻿import Link from "next/link";
+﻿import { CardLink } from "@/components/Card";
 
 const calculators = [
   { slug: "gst", name: "GST Calculator", description: "Compute GST and total amount quickly." },
-  { slug: "emi", name: "EMI Calculator", description: "Monthly EMI, total interest & payment." },
-  { slug: "age", name: "Age Calculator", description: "Age in years, months, and days." },
+  { slug: "emi", name: "EMI Calculator", description: "Monthly EMI, interest & totals." },
+  { slug: "age", name: "Age Calculator", description: "Age in years, months, days." },
 ];
 
 export default function CalculatorsIndex() {
   return (
-    <main className="relative min-h-[75vh] py-10">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-rose-50" />
-      <div className="mx-auto max-w-5xl px-4">
+    <main className="py-10">
+      <div className="container-x">
         <h1 className="mb-6 text-center text-4xl font-bold">Calculators</h1>
         <p className="mx-auto mb-10 max-w-2xl text-center text-muted-foreground">
-          Fast, accurate and ad-friendly calculators. No sign-up required.
+          Free tools that run entirely in your browser.
         </p>
         <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-          {calculators.map((c) => (
-            <Link
-              key={c.slug}
-              href={`/calculators/${c.slug}`}
-              className="group rounded-2xl border bg-white/80 p-5 shadow-sm transition hover:shadow-md"
-            >
-              <div className="mb-2 text-lg font-semibold group-hover:underline">
-                {c.name}
-              </div>
-              <p className="text-sm text-muted-foreground">{c.description}</p>
-            </Link>
+          {calculators.map(c => (
+            <CardLink key={c.slug} href={`/calculators/${c.slug}`} title={c.name} desc={c.description} />
           ))}
         </div>
       </div>
