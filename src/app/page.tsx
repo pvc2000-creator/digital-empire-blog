@@ -3,9 +3,9 @@ import Hero from "@/components/Hero";
 import { CardLink } from "@/components/Card";
 
 const featured = [
-  { href: "/calculators/gst", name: "GST Calculator", desc: "Compute GST and total." },
+  { href: "/calculators/basic", name: "Basic Calculator", desc: "Fast everyday math." },
+  { href: "/calculators/percentage", name: "Percentage Calculator", desc: "X% of Y & more." },
   { href: "/calculators/emi", name: "EMI Calculator", desc: "Monthly EMI & totals." },
-  { href: "/calculators/percent-change", name: "Percentage Change", desc: "Increase/decrease & difference." },
 ];
 
 export default function Home() {

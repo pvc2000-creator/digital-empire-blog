@@ -49,3 +49,18 @@ export function calcSimpleInterest(p: number, ratePct: number, years: number, mo
   const total = p + interest;
   return { interest, total, years: t };
 }
+
+/* Percentage helpers */
+export function percentOf(pct: number, base: number) {
+  return (pct / 100) * base;
+}
+export function whatPercentOf(part: number, whole: number) {
+  if (!whole) return 0;
+  return (part / whole) * 100;
+}
+export function increaseByPercent(value: number, pct: number) {
+  return value * (1 + pct / 100);
+}
+export function decreaseByPercent(value: number, pct: number) {
+  return value * (1 - pct / 100);
+}

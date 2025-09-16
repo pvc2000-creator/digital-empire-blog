@@ -1,11 +1,13 @@
 ﻿import { CardLink } from "@/components/Card";
 
 const calculators = [
+  { slug: "basic", name: "Basic Calculator", description: "+, −, ×, ÷, %, parentheses." },
+  { slug: "advanced", name: "Advanced Calculator", description: "sin, cos, tan, √, log, ln, π, e, power." },
+  { slug: "percentage", name: "Percentage Calculator", description: "X% of Y, what %, increase/decrease." },
+  { slug: "percent-change", name: "Percentage Change", description: "% increase/decrease & difference." },
   { slug: "gst", name: "GST Calculator", description: "Compute GST and total amount quickly." },
   { slug: "emi", name: "EMI Calculator", description: "Monthly EMI, interest & totals." },
-  { slug: "age", name: "Age Calculator", description: "Age in years, months, days." },
-  { slug: "percent-change", name: "Percentage Change", description: "% increase/decrease & difference." },
-  { slug: "simple-interest", name: "Simple Interest", description: "Interest and total amount." },
+  { slug: "age", name: "Age Calculator", description: "Age in years, months, days." }
 ];
 
 export default function CalculatorsIndex() {
