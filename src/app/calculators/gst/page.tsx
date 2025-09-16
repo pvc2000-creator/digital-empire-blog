@@ -2,6 +2,8 @@
 import { useMemo, useState } from "react";
 import CalcShell from "@/components/CalcShell";
 import { calcGst } from "@/lib/calc";
+import AdBlock from "@/components/AdBlock";
+import Faq from "@/components/Faq";
 
 export default function GstCalculatorPage() {
   const [amount, setAmount] = useState<string>("");
@@ -15,11 +17,14 @@ export default function GstCalculatorPage() {
 
   return (
     <CalcShell title="GST Calculator" subtitle="Compute GST and total amount instantly.">
+      {/* Ad above content (policy-safe: separated from controls) */}
+      <AdBlock slot="CALC_TOP_GST" />
+
       <div className="grid gap-4 md:grid-cols-2">
         <label className="grid gap-1">
           <span className="text-sm font-medium">Amount (before GST)</span>
           <input
-            className="rounded-xl border px-3 py-2 outline-none ring-offset-0 focus:ring-2"
+            className="rounded-xl border px-3 py-2 focus:ring-2"
             inputMode="decimal"
             placeholder="e.g. 1000"
             value={amount}
@@ -29,7 +34,7 @@ export default function GstCalculatorPage() {
         <label className="grid gap-1">
           <span className="text-sm font-medium">GST Rate (%)</span>
           <input
-            className="rounded-xl border px-3 py-2 outline-none ring-offset-0 focus:ring-2"
+            className="rounded-xl border px-3 py-2 focus:ring-2"
             inputMode="decimal"
             placeholder="e.g. 18"
             value={rate}
@@ -49,16 +54,18 @@ export default function GstCalculatorPage() {
         </div>
       </div>
 
-      <div className="prose prose-zinc mt-8 max-w-none">
+      <div className="prose mt-8 max-w-none">
         <h2>Formula</h2>
-        <p>
-          <code>GST = Amount × (Rate ÷ 100)</code> and <code>Total = Amount + GST</code>.
-        </p>
-        <h3>FAQ</h3>
-        <p>
-          This calculator runs completely in your browser and does not store any data.
-        </p>
+        <p><code>GST = Amount × (Rate ÷ 100)</code> and <code>Total = Amount + GST</code>.</p>
       </div>
+
+      {/* In-article style ad block */}
+      <AdBlock slot="CALC_MID_GST" />
+
+      <Faq items={[
+        { q: "What is GST?", a: "Goods and Services Tax is a value-added tax applied to most goods and services in India." },
+        { q: "Do you store my inputs?", a: "No. Everything runs in your browser; no data is sent to a server." }
+      ]} />
     </CalcShell>
   );
 }

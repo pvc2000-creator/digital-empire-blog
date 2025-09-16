@@ -3,6 +3,8 @@ import { useMemo, useState } from "react";
 import CalcShell from "@/components/CalcShell";
 import { calcSimpleInterest } from "@/lib/calc";
 import JsonLd from "@/components/JsonLd";
+import AdBlock from "@/components/AdBlock";
+import Faq from "@/components/Faq";
 
 export default function SimpleInterestClient() {
   const [p, setP] = useState<string>("");
@@ -19,8 +21,7 @@ export default function SimpleInterestClient() {
   }, [p,r,y,m]);
 
   const schema = {
-    "@context":"https://schema.org",
-    "@type":"Calculator",
+    "@context":"https://schema.org","@type":"Calculator",
     "name":"Simple Interest Calculator",
     "description":"Calculate simple interest and total amount.",
     "url":"https://digital-empire-blog.vercel.app/calculators/simple-interest"
@@ -29,6 +30,8 @@ export default function SimpleInterestClient() {
   return (
     <CalcShell title="Simple Interest Calculator" subtitle="Interest and total amount.">
       <JsonLd data={schema} />
+      <AdBlock slot="CALC_TOP_SI" />
+
       <div className="grid gap-4 md:grid-cols-2">
         <label className="grid gap-1">
           <span className="text-sm font-medium">Principal (₹)</span>
@@ -63,11 +66,17 @@ export default function SimpleInterestClient() {
         </div>
       </div>
 
-      <div className="prose prose-zinc mt-8 max-w-none">
+      <div className="prose mt-8 max-w-none">
         <h2>Formula</h2>
-        <p><code>SI = P × R × T</code>, where <code>R = annual% ÷ 100</code> and <code>T</code> is time in years.</p>
-        <p><code>Total = P + SI</code>. Months are converted to years automatically.</p>
+        <p><code>SI = P × R × T</code>, with <code>R = annual% ÷ 100</code> and <code>T</code> in years (months converted).</p>
       </div>
+
+      <AdBlock slot="CALC_MID_SI" />
+
+      <Faq items={[
+        { q: "Is compounding included?", a: "No. Simple Interest does not compound; for compounding use an EMI or compound-interest calculator." },
+        { q: "What about months?", a: "Months are converted to a fractional year internally." }
+      ]}/>
     </CalcShell>
   );
 }

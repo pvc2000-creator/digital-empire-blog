@@ -2,7 +2,8 @@
 import { useMemo, useState } from "react";
 import CalcShell from "@/components/CalcShell";
 import { percentOf, whatPercentOf, increaseByPercent, decreaseByPercent } from "@/lib/calc";
-import JsonLd from "@/components/JsonLd";
+import AdBlock from "@/components/AdBlock";
+import Faq from "@/components/Faq";
 
 type Mode = "of" | "what" | "inc" | "dec";
 
@@ -22,12 +23,10 @@ export default function PercentageClient() {
     }
   }, [mode, x, y]);
 
-  const schema = { "@context":"https://schema.org","@type":"Calculator","name":"Percentage Calculator",
-    "description":"X% of Y, what percent X is of Y, and increase/decrease by X%." };
-
   return (
     <CalcShell title="Percentage Calculator" subtitle="X% of Y, what percent, increase/decrease.">
-      <JsonLd data={schema} />
+      <AdBlock slot="CALC_TOP_PERCENTAGE" />
+
       <div className="grid gap-4 md:grid-cols-3">
         <label className="grid gap-1">
           <span className="text-sm font-medium">Mode</span>
@@ -56,14 +55,12 @@ export default function PercentageClient() {
         <div className="text-2xl font-bold">{(out?.value ?? 0).toFixed(2)}</div>
       </div>
 
-      <div className="prose mt-8 max-w-none">
-        <h2>Formulas</h2>
-        <ul>
-          <li><code>X% of Y = (X / 100) × Y</code></li>
-          <li><code>% of X in Y = (X / Y) × 100</code></li>
-          <li><code>Increase = Y × (1 + X/100)</code>; Decrease = <code>Y × (1 − X/100)</code></li>
-        </ul>
-      </div>
+      <AdBlock slot="CALC_MID_PERCENTAGE" />
+
+      <Faq items={[
+        { q: "When to use each mode?", a: "Use X% of Y to apply a percentage; 'what %' to compare two numbers; increase/decrease to adjust Y by X%." },
+        { q: "Are results rounded?", a: "Values show 2 decimals for readability; the internal math uses full precision." }
+      ]}/>
     </CalcShell>
   );
 }

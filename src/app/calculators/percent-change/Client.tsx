@@ -3,6 +3,8 @@ import { useMemo, useState } from "react";
 import CalcShell from "@/components/CalcShell";
 import { calcPercentChange } from "@/lib/calc";
 import JsonLd from "@/components/JsonLd";
+import AdBlock from "@/components/AdBlock";
+import Faq from "@/components/Faq";
 
 export default function PercentChangeClient() {
   const [oldVal, setOld] = useState<string>("");
@@ -15,8 +17,7 @@ export default function PercentChangeClient() {
   }, [oldVal, newVal]);
 
   const schema = {
-    "@context":"https://schema.org",
-    "@type":"Calculator",
+    "@context":"https://schema.org","@type":"Calculator",
     "name":"Percentage Change Calculator",
     "description":"Compute percentage increase/decrease and absolute difference.",
     "url":"https://digital-empire-blog.vercel.app/calculators/percent-change"
@@ -25,6 +26,8 @@ export default function PercentChangeClient() {
   return (
     <CalcShell title="Percentage Change Calculator" subtitle="Find % increase/decrease and difference.">
       <JsonLd data={schema} />
+      <AdBlock slot="CALC_TOP_PCTCHANGE" />
+
       <div className="grid gap-4 md:grid-cols-2">
         <label className="grid gap-1">
           <span className="text-sm font-medium">Old Value</span>
@@ -49,11 +52,17 @@ export default function PercentChangeClient() {
         </div>
       </div>
 
-      <div className="prose prose-zinc mt-8 max-w-none">
+      <div className="prose mt-8 max-w-none">
         <h2>Formula</h2>
-        <p><code>% change = (New - Old) / |Old| × 100</code></p>
-        <p>Positive = increase, negative = decrease.</p>
+        <p><code>% change = (New - Old) / |Old| × 100</code>. Positive = increase, negative = decrease.</p>
       </div>
+
+      <AdBlock slot="CALC_MID_PCTCHANGE" />
+
+      <Faq items={[
+        { q: "Does order matter?", a: "Yes. Old → New gives increase/decrease relative to the old value." },
+        { q: "What if Old is 0?", a: "If Old is 0 and New is not 0, the % change is treated as 100%." }
+      ]}/>
     </CalcShell>
   );
 }
